@@ -1,5 +1,5 @@
 <#PSScriptInfo
-.VERSION 1.0.0
+.VERSION 1.0.1
 .GUID 2d80b74b-905a-4d91-97af-35f0d3fe56e7
 .AUTHOR Michael Niehaus
 .COMPANYNAME
@@ -70,7 +70,7 @@ if ($currentVersion -lt $MinimumVersion) {
 # If a script was specified, run it using the installed PowerShell LTS version from the path
 if ($Script -ne "") {
     Try {
-        & pwsh.exe -File $Script
+        & pwsh.exe -ExecutionPolicy bypass -File $Script
     }
     Catch {
         Throw "Failed to start $PSCOMMANDPATH"
