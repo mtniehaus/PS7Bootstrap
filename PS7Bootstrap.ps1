@@ -60,7 +60,7 @@ Write-Host "Minimum PowerShell version = $MinimumVersion"
 if ($currentVersion -lt $MinimumVersion) {
 
     Write-Host "Installing PowerShell LTS"
-    Invoke-Expression "& { $(Invoke-RestMethod https://aka.ms/install-powershell.ps1) } -UseMSI"
+    Invoke-Expression "& { $(Invoke-RestMethod https://aka.ms/install-powershell.ps1) } -UseMSI -Quiet"
 
     # Make sure we have the current path (including pwsh.exe).  Note that this will drop any user path entries.
     $newPath = (Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Session Manager\Environment" -Name PATH).Path
